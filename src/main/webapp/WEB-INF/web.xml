@@ -14,7 +14,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>HallServlet</servlet-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/hall.do</url-pattern>
   </servlet-mapping>
 
 
