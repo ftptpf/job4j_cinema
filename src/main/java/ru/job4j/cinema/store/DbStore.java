@@ -57,7 +57,7 @@ public class DbStore implements Store {
     }
 
     public List<Ticket> findAllTickets() {
-        List<Ticket> tickets = new ArrayList<>();
+        List<Ticket> tickets = new ArrayList<>(9);
         try (Connection cn = pool.getConnection();
              PreparedStatement ps = cn.prepareStatement("SELECT * FROM ticket")) {
             try (ResultSet it = ps.executeQuery()) {
