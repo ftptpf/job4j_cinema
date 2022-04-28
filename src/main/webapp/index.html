@@ -16,25 +16,42 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- JavaScript -->
 <script>
+    $(document).ready(function () {
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:8080/cinema/hall.do',
+            dataType: 'json'
+        }).done(function(tickets) {
+            for (let ticket of tickets) {
+                let radioButtons = document.getElementsByName(`place`);
+                for (let rad of radioButtons) {
+                    if (${ticket.row}}+${tiket.cell} === rad.value) {
+                        rad.type.
+                }
+                }
+
+            }
+        })
+
+    });
     function validate() {
-        let result = 0;
         let radioButtons = document.getElementsByName(`place`);
         for (let red of radioButtons) {
             if (red.checked) {
-                result++;
+                return true;
             }
         }
-        if (result === 0) {
-            alert("Необходимо выбрать билет для бронирования");
-            return false;
-        }
-        return true;
+        alert("Необходимо выбрать ряд и место для того чтобы забронировать билет");
+        return false;
     }
     function urlRedirectToPayment() {
-        validate();
-        window.location.href = "http://localhost:8080/cinema/payment.html"
+        if (validate()) {
+            window.location.href = "http://localhost:8080/cinema/payment.html"
+        }
     }
 </script>
 
@@ -56,7 +73,7 @@
             <tr>
                 <th>1</th>
                 <td><input type="radio" name="place" value="11"> Ряд 1, Место 1</td>
-                <td><input type="radio" name="place" value="12"> Ряд 1, Место 2</td>
+                <td><input type="hidden" name="place" value="12"> Ряд 1, Место 2</td>
                 <td><input type="radio" name="place" value="13"> Ряд 1, Место 3</td>
             </tr>
             <tr>
