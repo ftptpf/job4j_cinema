@@ -28,28 +28,31 @@
             type: 'GET',
             url: 'http://localhost:8080/cinema/hall.do',
             dataType: 'json'
-        }).done(function(data) {
+        }).done(function (data) {
             let ticketsHtml = "";
-            for (let i = 1; i <=3; i++) {
-                if (data.id) {
+            let counter = 0;
+            let row = data[counter]["row"];
+            let sell = data[counter]["cell"];
+            for (let i = 1; i <= 3; i++) {
+                ticketsHtml = "<tr><th>" + i + "</th>";
+                for (let j = 1; j <= 3; j++) {
+                    if (data[counter]["accountId"] === 0) {
+                        ticketsHtml += "<td><input type='radio' name='place' value="
+                            + row + sell > "Ряд" + row + ", Место" + sell + "</td>";
+                    } else {
+                        ticketsHtml += "<td><input type='hidden' name='place' value="
+                            + row + sell > "Ряд" + row + ", Место" + sell + "</td>";
+                    }
+                    counter++;
                 }
+                ticketsHtml += "</tr>";
             }
-            })
-
-
-
-
-
-/*            for (let ticket of data) {
-                let radioButtons = document.getElementsByName(`place`);
-                for (let rad of radioButtons) {
-                    if (${ticket.row}}+${tiket.cell} === rad.value) {
-                        rad.type.
-                }
-                }
-
-            }*/
+            $("ticketInfo").html(ticketsHtml);
+        }).fail(function (err) {
+            console.log(err);
         });
+    }
+
     function validate() {
         let radioButtons = document.getElementsByName(`place`);
         for (let red of radioButtons) {
@@ -82,24 +85,6 @@
             </tr>
             </thead>
             <tbody id="ticketInfo">
-            <tr>
-                <th>1</th>
-<!--                <td><input type="radio" name="place" value="11"> Ряд 1, Место 1</td>
-                <td><input type="hidden" name="place" value="12"> Ряд 1, Место 2</td>
-                <td><input type="radio" name="place" value="13"> Ряд 1, Место 3</td>-->
-            </tr>
-            <tr>
-                <th>2</th>
-<!--                <td><input type="radio" name="place" value="21"> Ряд 2, Место 1</td>
-                <td><input type="radio" name="place" value="22"> Ряд 2, Место 2</td>
-                <td><input type="radio" name="place" value="23"> Ряд 2, Место 3</td>-->
-            </tr>
-            <tr>
-                <th>3</th>
-<!--                <td><input type="radio" name="place" value="31"> Ряд 3, Место 1</td>
-                <td><input type="radio" name="place" value="32"> Ряд 3, Место 2</td>
-                <td><input type="radio" name="place" value="33"> Ряд 3, Место 3</td>-->
-            </tr>
             </tbody>
         </table>
     </div>
