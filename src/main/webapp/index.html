@@ -31,23 +31,22 @@
         }).done(function (data) {
             let ticketsHtml = "";
             let counter = 0;
-            let row = data[counter]["row"];
-            let sell = data[counter]["cell"];
             for (let i = 1; i <= 3; i++) {
-                ticketsHtml = "<tr><th>" + i + "</th>";
+                ticketsHtml += "<tr><th>" + i + "</th>";
                 for (let j = 1; j <= 3; j++) {
+                    let row = data[counter]["row"];
+                    let sell = data[counter]["cell"];
+                    let radioType = "hidden";
                     if (data[counter]["accountId"] === 0) {
-                        ticketsHtml += "<td><input type='radio' name='place' value="
-                            + row + sell > "Ряд" + row + ", Место" + sell + "</td>";
-                    } else {
-                        ticketsHtml += "<td><input type='hidden' name='place' value="
-                            + row + sell > "Ряд" + row + ", Место" + sell + "</td>";
+                        radioType = "radio";
                     }
+                    ticketsHtml += "<td><input type='" + radioType + "' name='place' value="
+                        + row + sell + "> Ряд " + row + ", Место " + sell + "</td>";
                     counter++;
                 }
                 ticketsHtml += "</tr>";
             }
-            $("ticketInfo").html(ticketsHtml);
+            $('#ticketInfo').html(ticketsHtml);
         }).fail(function (err) {
             console.log(err);
         });
