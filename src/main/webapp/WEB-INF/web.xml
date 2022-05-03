@@ -8,6 +8,7 @@
                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
   <display-name>Archetype Created Web Application</display-name>
+
   <servlet>
     <servlet-name>HallServlet</servlet-name>
     <servlet-class>ru.job4j.cinema.servlet.HallServlet</servlet-class>
@@ -17,5 +18,13 @@
     <url-pattern>/hall.do</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>PaymentServlet</servlet-name>
+    <servlet-class>ru.job4j.cinema.servlet.PaymentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PaymentServlet</servlet-name>
+    <url-pattern>/payment.do</url-pattern>
+  </servlet-mapping>
 
 </web-app>

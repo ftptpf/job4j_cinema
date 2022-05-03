@@ -26,9 +26,4 @@ public class HallServlet extends HttpServlet {
         output.flush();
         output.close();
     }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("payment.html").forward(req, resp);
-    }
 }

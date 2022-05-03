@@ -64,7 +64,8 @@
     }
     function urlRedirectToPayment() {
         if (validate()) {
-            window.location.href = "http://localhost:8080/cinema/payment.html"
+            window.location.href = "http://localhost:8080/cinema/payment.jsp?placeValue="
+                + $("input:radio[name=place]:checked").val()
         }
     }
 </script>
@@ -90,6 +91,7 @@
     <div class="row float-right">
         <button type="button" class="btn btn-success" onclick="urlRedirectToPayment()">Оплатить</button>
     </div>
-</div>
+</div>>
+
 </body>
 </html>

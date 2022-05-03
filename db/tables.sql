@@ -27,4 +27,4 @@ INSERT INTO ticket(session_id, row, cell, account_id) VALUES (1, 3, 2, 0);
 INSERT INTO ticket(session_id, row, cell, account_id) VALUES (1, 3, 3, 0);
 
 INSERT INTO account(username, email, phone) VALUES ('Николай', 'mail@mail.ru', '+74951112233');
-UPDATE ticket SET account_id = 1 WHERE id = 5;
+UPDATE ticket SET account_id = 0 WHERE id = 5;

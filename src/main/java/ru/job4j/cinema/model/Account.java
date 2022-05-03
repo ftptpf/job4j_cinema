@@ -12,6 +12,11 @@ public class Account {
         this.email = email;
         this.phone = phone;
     }
+    public Account(String username, String email, String phone) {
+        this.username = username;
+        this.email = email;
+        this.phone = phone;
+    }
 
     public int getId() {
         return id;
