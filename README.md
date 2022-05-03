@@ -9,7 +9,7 @@
 Главная страница.
 Предоставляется возможность выбрать билет.
 Если билеты уже кто-то приобрел - они отображаются в интерфейсе, но недоступны для выбора.
-https://github.com/ftptpf/job4j_cinema/blob/master/src/main/resources/images/1.JPG
+
 ![Alt-текст](https://github.com/ftptpf/job4j_cinema/blob/master/src/main/resources/images/1.JPG "Главная страница")
 
 При попытке перейти к следующему разделу предварительно не выбрав билет - появится соответствующее уведомление.
